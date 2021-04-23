@@ -16,17 +16,17 @@ namespace PostAzureKmr
 
             #region Credentials
             //Credentials for validate against Azure
+            String ClientId = "Put here your number of client";
+            String SecretId = "Put here your number of secret";
+            String TenantId = "Put here your number of tenant";
 
-            //recordar quitar los Ids reales antes de subir el codigo a GitHub
-            String ClientId = "04ed1e3a-4fcd-466d-9302-874ff5171706";
-            String SecretId = "XWbnjtaBv3.eE3v1BlhKkitz3LZ8fGetl2";
-            String TenantId = "68519e48-83f3-435f-a38a-1a7aa77ba987";
             //Creation of credentials
             var credentials = SdkContext.AzureCredentialsFactory
                     .FromServicePrincipal(ClientId, SecretId, TenantId,
                         AzureEnvironment.AzureGlobalCloud);
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Creation of credentials: Done");
+
             //Validation of credentials
             var azure = Azure.Configure()
                 .WithLogLevel(HttpLoggingDelegatingHandler.Level.Basic)
